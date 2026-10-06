@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class SistemaCalificaciones {
+      public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        final int MINIMO_APROBATORIO = 70;
+        final int MINIMO_FACIDAD = 60;
+
+        System.out.print("Calif 1: ");
+        int c1 = sc.nextInt();
+        System.out.print("Calif 2: ");
+        int c2 = sc.nextInt();
+        System.out.print("Calif 3: ");
+        int c3 = sc.nextInt();
+
+        int promedio = (c1 + c2 + c3) / 3;
+        System.out.println("Promedio: " + promedio);
+
+        if (promedio >= MINIMO_APROBATORIO) {
+            System.out.println("Aprobado");
+        } else {
+            System.out.println("Reprobado");
+        }
+        if (c1 < MINIMO_FACIDAD || c2 < MINIMO_FACIDAD || c3 < MINIMO_FACIDAD) {
+            System.out.println("Debe presentar recuperacion");
+        }
+    }
+}
