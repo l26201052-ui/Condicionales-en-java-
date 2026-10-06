@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class TiendaDescuentos {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        final int DESC_FRECUENTE = 10;
+        final int DESC_VIP = 20;
+        final int DESC_ADICIONAL = 5;
+
+        System.out.print("Monto: ");
+        int monto = sc.nextInt();
+        System.out.print("Tipo (1 normal, 2 frecuente, 3 VIP): ");
+        int tipo = sc.nextInt();
+
+        int descuento = 0;
+        if (tipo == 2) descuento = monto * DESC_FRECUENTE / 100;
+        if (tipo == 3) descuento = monto * DESC_VIP / 100;
+
+        int total = monto - descuento;
+        if (monto > 2000) {
+            int extra = total * DESC_ADICIONAL / 100;
+            descuento = descuento + extra;
+            total = monto - descuento;
+        }
+
+        System.out.println("Descuento: " + descuento);
+        System.out.println("Total a pagar: " + total);
+    }
+}
