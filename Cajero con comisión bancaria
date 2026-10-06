@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class CajeroComisionBancaria {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        final int COMISION = 10;
+        final int LIMITE_RETIRO = 5000;
+
+        System.out.print("Saldo: ");
+        int saldo = sc.nextInt();
+        System.out.print("Retiro: ");
+        int retiro = sc.nextInt();
+
+        if (retiro <= 0) {
+            System.out.println("Cantidad no valida");
+        } else if (retiro > LIMITE_RETIRO) {
+            System.out.println("Supera limite");
+        } else {
+            {
+                int totalRetiro = retiro + COMISION;
+                int nuevoSaldo = saldo - totalRetiro;
+                if (totalRetiro > saldo) {
+                    System.out.println("Saldo insuficiente para comision");
+                } else {
+                    System.out.println("Retiro: " + retiro);
+                    System.out.println("Comision: " + COMISION);
+                    System.out.println("Saldo final: " + nuevoSaldo);
+                }
+            }
+        }
+    }
+}
