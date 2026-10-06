@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class CajeroAutomatico {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        final int LIMITE_RETIRO = 5000;
+
+        System.out.print("Saldo: ");
+        int saldo = sc.nextInt();
+        System.out.print("Retiro: ");
+        int retiro = sc.nextInt();
+
+        if (retiro > LIMITE_RETIRO) {
+            System.out.println("No se puede retirar, supera el limite de " + LIMITE_RETIRO);
+        } else if (retiro > saldo) {
+            System.out.println("Saldo insuficiente");
+        } else {
+            int resto = saldo - retiro;
+            System.out.println("Retiro autorizado, saldo restante: " + resto);
+            if (resto < 500) {
+                System.out.println("Advertencia saldo bajo");
+            }
+        }
+    }
+}
