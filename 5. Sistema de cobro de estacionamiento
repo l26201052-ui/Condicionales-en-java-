@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class Estacionamiento {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        final int TARIFA_MOTO = 10;
+        final int TARIFA_AUTO = 20;
+        final int TARIFA_CAMIONETA = 30;
+
+        System.out.print("Tipo (1 moto, 2 auto, 3 camioneta): ");
+        int tipo = sc.nextInt();
+        System.out.print("Horas: ");
+        int horas = sc.nextInt();
+
+        if (horas <= 0) {
+            System.out.println("Horas no validas");
+        } else {
+            int tarifa = 0;
+            if (tipo == 1) tarifa = TARIFA_MOTO;
+            if (tipo == 2) tarifa = TARIFA_AUTO;
+            if (tipo == 3) tarifa = TARIFA_CAMIONETA;
+
+            int subtotal = tarifa * horas;
+            int descuento = 0;
+            if (horas > 10) descuento = subtotal * 20 / 100;
+            int total = subtotal - descuento;
+
+            System.out.println("Tarifa: " + tarifa);
+            System.out.println("Subtotal: " + subtotal);
+            System.out.println("Descuento: " + descuento);
+            System.out.println("Total: " + total);
+        }
+    }
+}
